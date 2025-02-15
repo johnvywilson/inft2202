@@ -2,7 +2,6 @@
 <!-- Course: INFT 2202 -->
 <!-- Date: January 10, 2025 -->
 <!-- Description: This is the list section of my site. -->
-
 <!DOCTYPE html>
 <html lang="en-us">
 
@@ -37,7 +36,12 @@
         <h1>Animal List</h1>
         <div id="pagination" class="d-none"></div>
       </div>
-      
+
+      <div id="waiting" class="text-center">
+        <i class="fa fa-5x fa-spinner fa-spin"></i>
+      </div>
+      <div id="error-message" class="alert alert-danger text-center d-none">          
+      </div>
       <div id="empty-message" class="alert alert-warning d-none">
         There are currently no animals in local storage.
       </div>
@@ -64,7 +68,7 @@
             <use xlink:href="#bootstrap"></use>
           </svg>
         </a>
-        <span class="mb-3 mb-md-0 text-body-secondary">© <span id="copyrightYear"></span> Johnvy, Inc</span>
+        <span class="mb-3 mb-md-0 text-body-secondary">© <span id="copyrightYear"></span> Johnvy Wilson, Inc</span>
       </div>
 
       <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
