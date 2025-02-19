@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Product List</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Product App</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="product.html">Create Product</a></li>
+        <li class="nav-item"><a class="nav-link" href="list.html">Product List</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container mt-5">
+    <h2>Product List</h2>
+    <table class="table table-bordered" id="productsTable">
+      <thead class="thead-light">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Stock</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Product rows will be inserted here by JavaScript -->
+      </tbody>
+    </table>
+  </div>
+  
+  <script src="js/main.js"></script>
+  <script src="js/deleteProduct.js"></script>
+  <script>
+    // When the page loads, get the products and build the table rows.
+    document.addEventListener('DOMContentLoaded', function () {
+      const products = getProducts();
+      const tbody = document.querySelector('#productsTable tbody');
+      tbody.innerHTML = "";
+      products.forEach(product => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${product.name}</td>
+          <td>${product.description}</td>
+          <td>${product.stock}</td>
+          <td>$${product.price.toFixed(2)}</td>
+          <td>
+            <a href="product.html?id=${product.id}" class="btn btn-warning btn-sm">Edit</a>
+            <button class="btn btn-danger btn-sm" onclick="deleteProduct('${product.id}')">Delete</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    });
+  </script>
+</body>
+</html>
