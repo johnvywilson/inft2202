@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +11,8 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="index.html">Web Shop</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -18,23 +20,38 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="list.html">Shop</a></li>
-                    <li class="nav-item"><a class="nav-link" href="create.html">Add Product</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="/server/product/index.html"
+                      >Home</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/server/product/list.html">Shop</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/server/create.html">Add Product</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/server/about.html">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/server/contact.html">Contact</a>
+                  </li>
                 </ul>
-            </div>
+              </div>
         </div>
     </nav>
 
+    <!-- Add this right after the nav -->
     <div id="messageContainer" class="container mt-3" style="display: none;">
         <div class="alert" role="alert"></div>
     </div>
 
+    <!-- Product List Section -->
     <div class="container mt-4">
         <h1 class="text-center">Our Products</h1>
 
+        <!-- Add items per page selector -->
         <div class="row mb-3">
             <div class="col-md-6">
                 <label for="itemsPerPage" class="form-label">Items per page:</label>
@@ -47,6 +64,7 @@
             </div>
         </div>
 
+        <!-- Add this before the product list -->
         <div id="loadingSpinner" class="text-center my-5" style="display: none;">
             <div class="spinner-border text-primary" role="status">
                 <span class="visually-hidden">Loading...</span>
@@ -67,10 +85,11 @@
                 </tr>
             </thead>
             <tbody>
-                
+                <!-- Products will be dynamically inserted here -->
             </tbody>
         </table>
 
+        <!-- Add delete confirmation modal -->
         <div class="modal fade" id="deleteModal" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -89,14 +108,17 @@
             </div>
         </div>
 
+        <!-- Pagination controls -->
         <nav aria-label="Product pagination">
             <ul class="pagination justify-content-center" id="pagination">
+                <!-- Pagination buttons will be dynamically inserted here -->
             </ul>
         </nav>
     </div>
 
-    <footer class="text-center py-3 mt-4 bg-light">
-        <p>&copy; <span id="year"></span> Johnvy Wilson, Inc</p>
+    <!-- Footer -->
+    <footer class="text-center py-3 mt-4 bg-dark">
+        <p>&copy; <span id="year"></span>Johnvy Wilson ,Inc </p>
     </footer>
 
     <script>

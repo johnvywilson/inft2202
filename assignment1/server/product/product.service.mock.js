@@ -1,4 +1,4 @@
-// src/client/app/products/product.mock.service.js
+
 import Product from './product.js';
 
 class ProductService {
@@ -6,6 +6,7 @@ class ProductService {
         this.products = this.loadProducts();
     }
 
+    
     loadProducts() {
         const products = localStorage.getItem('products');
         return products ? JSON.parse(products).map(p => {
@@ -23,12 +24,12 @@ class ProductService {
 
     async addProduct(product) {
         try {
-            // Simulate API delay
+            // API delay
             await new Promise(resolve => setTimeout(resolve, 500));
 
             product.id = Math.random().toString(36).substr(2, 9);
             product.createdAt = new Date().toISOString();
-            product.owner = 'current_user'; // Simulate current user
+            product.owner = 'current_user';
 
             this.products.push(product);
             this.saveProducts();
@@ -41,7 +42,7 @@ class ProductService {
 
     async getProducts(page = 1, perPage = 10) {
         try {
-            // Simulate API delay
+            // API delay
             await new Promise(resolve => setTimeout(resolve, 500));
 
             const start = (page - 1) * perPage;
@@ -58,7 +59,7 @@ class ProductService {
 
     async updateProduct(id, updatedProduct) {
         try {
-            // Simulate API delay
+            // API delay
             await new Promise(resolve => setTimeout(resolve, 500));
 
             const index = this.products.findIndex(p => p.id === id);
@@ -81,7 +82,7 @@ class ProductService {
 
     async deleteProduct(id) {
         try {
-            // Simulate API delay
+            // API delay
             await new Promise(resolve => setTimeout(resolve, 500));
 
             const index = this.products.findIndex(p => p.id === id);
@@ -99,6 +100,5 @@ class ProductService {
     }
 }
 
-// Fix: Create an instance and export it as default
 const productService = new ProductService();
 export default productService;
